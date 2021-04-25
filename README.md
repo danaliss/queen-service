@@ -1,1 +1,1 @@
-# queen-service
+# Queen Service
