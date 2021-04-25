@@ -15,4 +15,43 @@ public class Queen implements Serializable {
     private boolean missCongeniality;
     private String quote;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean isWinner() {
+        return winner;
+    }
+
+    public void setWinner(boolean winner) {
+        this.winner = winner;
+    }
+
+    public boolean isMissCongeniality() {
+        return missCongeniality;
+    }
+
+    public void setMissCongeniality(boolean missCongeniality) {
+        this.missCongeniality = missCongeniality;
+    }
+
+    public String getQuote() {
+        return quote;
+    }
+
+    public void setQuote(String quote) {
+        this.quote = quote;
+    }
 }
