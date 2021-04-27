@@ -1,7 +1,6 @@
-package com.danaliss.queenservice.controller;
+package com.danaliss.queenservice;
 
 import com.danaliss.queenservice.model.Queen;
-import com.danaliss.queenservice.service.QueenService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,10 +11,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1")
 @Slf4j
-public class QueenController {
+public class Controller {
 
     @Autowired
-    QueenService queenService;
+    ServiceImpl service;
 
     @PostMapping("/refresh-queens")
     @ResponseStatus(value = HttpStatus.OK)
@@ -26,6 +25,6 @@ public class QueenController {
     @GetMapping("/queens")
     @ResponseStatus(value = HttpStatus.OK)
     public List<Queen> fetchAllQueens() {
-        return queenService.fetchAllQueens();
+        return service.fetchAllQueens();
     }
 }

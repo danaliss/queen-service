@@ -1,57 +1,25 @@
 package com.danaliss.queenservice.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Data;
+import lombok.val;
 
-import java.io.Serializable;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class Queen implements Serializable {
+@Data
+public class Queen {
 
     private int id;
     private String name;
     private boolean winner;
     private boolean missCongeniality;
-    private String quote;
 
-    public int getId() {
-        return id;
-    }
+    public static Queen of(final ClientQueen pClientQueen){
+        // final Queen queen = new Queen();
+        val queen = new Queen();
 
-    public void setId(int id) {
-        this.id = id;
-    }
+        queen.id = pClientQueen.getId();
+        queen.name = pClientQueen.getName();
+        queen.winner = pClientQueen.isWinner();
+        queen.missCongeniality = pClientQueen.isMissCongeniality();
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public boolean isWinner() {
-        return winner;
-    }
-
-    public void setWinner(boolean winner) {
-        this.winner = winner;
-    }
-
-    public boolean isMissCongeniality() {
-        return missCongeniality;
-    }
-
-    public void setMissCongeniality(boolean missCongeniality) {
-        this.missCongeniality = missCongeniality;
-    }
-
-    public String getQuote() {
-        return quote;
-    }
-
-    public void setQuote(String quote) {
-        this.quote = quote;
+        return queen;
     }
 }
