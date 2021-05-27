@@ -9,7 +9,6 @@ import lombok.Data;
 @Data
 public class ClientQueen {
 
-    private int id;
     private String name;
     private boolean winner;
     private boolean missCongeniality;

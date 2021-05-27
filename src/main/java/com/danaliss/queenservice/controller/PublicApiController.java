@@ -1,5 +1,7 @@
-package com.danaliss.queenservice;
+package com.danaliss.queenservice.controller;
 
+import com.danaliss.queenservice.Service;
+import com.danaliss.queenservice.dao.QueenRepository;
 import com.danaliss.queenservice.model.Queen;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,22 +11,27 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/api")
 @Slf4j
-public class Controller {
+public class PublicApiController {
 
     @Autowired
-    ServiceImpl service;
+    Service service;
+
+    @Autowired
+    private QueenRepository queenRepository;
 
     @PostMapping("/refresh-queens")
     @ResponseStatus(value = HttpStatus.OK)
     public void updateDataThatDoesNotRequireClientToBeNotified() {
-        return;
+
+        service.addQueensToDb();
     }
 
     @GetMapping("/queens")
     @ResponseStatus(value = HttpStatus.OK)
     public List<Queen> fetchAllQueens() {
+
         return service.fetchAllQueens();
     }
 }
